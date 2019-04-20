@@ -162,6 +162,9 @@
      </layout>
     </item>
     <item>
+     <widget class="QTextEdit" name="textEdit_details"/>
+    </item>
+    <item>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
        <widget class="QLabel" name="label_3">
