@@ -2,9 +2,11 @@
 import sys, os, time
 from PyQt5 import uic, QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow
+import PyQt5.QtWidgets
+print(PyQt5.QtWidgets.QStyleFactory.keys())
 
 #%% Load Forms
-TSW_Form = uic.loadUiType(os.path.join(os.getcwd(), 'Time_Save_Window.ui'))[0]
+TSW_Form = uic.loadUiType(os.path.join(os.getcwd(), 'UI','Time_Save_Window.ui'))[0]
 
 #%% GUI Classes
 #%% Time Save Window
@@ -93,8 +95,8 @@ class TSW(TSW_Form, QMainWindow):
                 self.save_but.setEnabled(False)
 
                 with open('PMP_LOG.txt', 'a') as log_file:
-                    log_file.write('TOTAL => {:^15} | START => {} | STOP => {}\n'.format\
-                                        (self.total_time, self.start_time, self.stop_time))
+                    log_file.write('TOTAL => {:^15} | START => {} | STOP => {} | Details => {}\n'.format\
+                                        (self.total_time, self.start_time, self.stop_time, repr(self.textEdit_details.toPlainText())))
 
                 self.save_but.setStyleSheet("background-color: rgb(0, 255, 0);")
 
@@ -108,6 +110,8 @@ class TSW(TSW_Form, QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    
+    app.setStyle('Fusion')
 
     ts_window = TSW()
     ts_window.show()

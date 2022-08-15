@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>418</width>
-    <height>526</height>
+    <height>549</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -162,9 +162,6 @@
      </layout>
     </item>
     <item>
-     <widget class="QTextEdit" name="textEdit_details"/>
-    </item>
-    <item>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
        <widget class="QLabel" name="label_3">
@@ -302,6 +299,9 @@
        </layout>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QTextEdit" name="textEdit_details"/>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
