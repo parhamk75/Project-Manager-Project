@@ -103,6 +103,7 @@ class TSW(TSW_Form, QMainWindow):
     def reset_all(self):
         self.reset_start()
         self.reset_stop()
+        self.textEdit_details.clear()
 
         self.save_but.setEnabled(True)
         self.save_but.setStyleSheet("")
