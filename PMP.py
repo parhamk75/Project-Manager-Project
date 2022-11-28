@@ -1,5 +1,6 @@
 #%% Imports
 import sys, os, time
+import json
 from PyQt5 import uic, QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow
 import PyQt5.QtWidgets
@@ -83,6 +84,8 @@ class TSW(TSW_Form, QMainWindow):
         self.set_but_stop.setStyleSheet("")
 
     def save_file(self):        
+        tmp_prj:str = self.comboBox_Project.currentText()
+
         if (self.start_time == None) or (self.stop_time == None):
             self.save_but.setStyleSheet("background-color: rgb(255, 0, 0);")
         else:
@@ -94,7 +97,7 @@ class TSW(TSW_Form, QMainWindow):
             else:
                 self.save_but.setEnabled(False)
 
-                with open('PMP_LOG.txt', 'a') as log_file:
+                with open(F'{tmp_prj}_LOG.txt', 'a') as log_file:
                     log_file.write('TOTAL => {:^15} | START => {} | STOP => {} | Details => {}\n'.format\
                                         (self.total_time, self.start_time, self.stop_time, repr(self.textEdit_details.toPlainText())))
 
@@ -103,6 +106,7 @@ class TSW(TSW_Form, QMainWindow):
     def reset_all(self):
         self.reset_start()
         self.reset_stop()
+        self.textEdit_details.setText("")
 
         self.save_but.setEnabled(True)
         self.save_but.setStyleSheet("")
@@ -121,3 +125,5 @@ if __name__ == "__main__":
     
     app.exec_()
     print('this was the end!')
+
+# %%

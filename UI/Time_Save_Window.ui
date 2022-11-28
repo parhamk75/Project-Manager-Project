@@ -16,6 +16,38 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_5">
     <item>
+     <widget class="QComboBox" name="comboBox_Project">
+      <property name="editable">
+       <bool>false</bool>
+      </property>
+      <property name="currentText">
+       <string>Bio-Engine</string>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+      <item>
+       <property name="text">
+        <string>Bio-Engine</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Four Clovers Health</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>INILAB</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../INILAB.ico</normaloff>../INILAB.ico</iconset>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
        <widget class="QLabel" name="label_2">
@@ -391,7 +423,7 @@
      <x>0</x>
      <y>0</y>
      <width>418</width>
-     <height>26</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
