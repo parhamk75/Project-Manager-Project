@@ -6,52 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>418</width>
-    <height>549</height>
+    <width>517</width>
+    <height>838</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_5">
-    <item>
-     <widget class="QComboBox" name="comboBox_Label">
-      <property name="editable">
-       <bool>false</bool>
-      </property>
-      <property name="currentText">
-       <string>Bio-Engine</string>
-      </property>
-      <property name="placeholderText">
-       <string/>
-      </property>
-      <item>
-       <property name="text">
-        <string>Bio-Engine</string>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>../ICONS/Bio-Engine.png</normaloff>../ICONS/Bio-Engine.png</iconset>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Four Clovers Health</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>INILAB</string>
-       </property>
-       <property name="icon">
-        <iconset>
-         <normaloff>../ICONS/INILAB.ico</normaloff>../ICONS/INILAB.ico</iconset>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
        <widget class="QLabel" name="label_2">
@@ -197,7 +161,7 @@
       </item>
      </layout>
     </item>
-    <item>
+    <item row="1" column="0">
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
        <widget class="QLabel" name="label_3">
@@ -336,25 +300,77 @@
       </item>
      </layout>
     </item>
-    <item>
+    <item row="2" column="0">
      <widget class="QTextEdit" name="textEdit_details"/>
     </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+    <item row="3" column="0">
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QComboBox" name="comboBox_Label">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
+        <property name="editable">
+         <bool>false</bool>
         </property>
-       </spacer>
+        <property name="currentText">
+         <string>Bio-Engine</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+        <item>
+         <property name="text">
+          <string>Bio-Engine</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../ICONS/Bio-Engine.png</normaloff>../ICONS/Bio-Engine.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Four Clovers Health</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>INILAB</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>../ICONS/INILAB.ico</normaloff>../ICONS/INILAB.ico</iconset>
+         </property>
+        </item>
+       </widget>
       </item>
-      <item>
+      <item row="0" column="1">
+       <widget class="QCheckBox" name="checkBox_FTP">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>FTP</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="tristate">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="4" column="0">
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="1" column="1">
        <widget class="QPushButton" name="save_but">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -379,7 +395,33 @@
         </property>
        </widget>
       </item>
-      <item>
+      <item row="1" column="3">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="0">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="2">
        <widget class="QPushButton" name="reset_but">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -404,18 +446,15 @@
         </property>
        </widget>
       </item>
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+      <item row="0" column="0" colspan="4">
+       <widget class="QProgressBar" name="progressBar_Save">
+        <property name="enabled">
+         <bool>true</bool>
         </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
+        <property name="value">
+         <number>0</number>
         </property>
-       </spacer>
+       </widget>
       </item>
      </layout>
     </item>
@@ -426,7 +465,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>418</width>
+     <width>517</width>
      <height>20</height>
     </rect>
    </property>
