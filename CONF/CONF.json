@@ -1,0 +1,9 @@
+{
+    "LOCAL_SAVING_PATH" :   [".", "OUTPUT", "Recording.json"],
+    "LABELS"            :   ["Bio-Engine", "Four Clovers Health", "INILAB"],
+    "FTP"               :   {
+            "SERVER":   "",
+            "USR"   :   "",
+            "PSWD"  :   ""
+    }
+}

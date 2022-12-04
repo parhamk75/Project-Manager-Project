@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_5">
     <item>
-     <widget class="QComboBox" name="comboBox_Project">
+     <widget class="QComboBox" name="comboBox_Label">
       <property name="editable">
        <bool>false</bool>
       </property>
@@ -30,6 +30,10 @@
        <property name="text">
         <string>Bio-Engine</string>
        </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../ICONS/Bio-Engine.png</normaloff>../ICONS/Bio-Engine.png</iconset>
+       </property>
       </item>
       <item>
        <property name="text">
@@ -42,7 +46,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../INILAB.ico</normaloff>../INILAB.ico</iconset>
+         <normaloff>../ICONS/INILAB.ico</normaloff>../ICONS/INILAB.ico</iconset>
        </property>
       </item>
      </widget>
