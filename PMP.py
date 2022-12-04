@@ -1,12 +1,20 @@
 #%% Imports
 import sys, os, time
+import json
 from PyQt5 import uic, QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow
 import PyQt5.QtWidgets
 print(PyQt5.QtWidgets.QStyleFactory.keys())
-
 #%% Load Forms
 TSW_Form = uic.loadUiType(os.path.join(os.getcwd(), 'UI','Time_Save_Window.ui'))[0]
+
+CONF_DIC: dict
+
+with open(os.path.join("CONF", "CONF.json"), mode='r') as conf_file:
+    CONF_DIC = json.loads(conf_file.read(-1))
+
+REC_FILE_PATH = os.path.join(*CONF_DIC["LOCAL_SAVING_PATH"])
+print(REC_FILE_PATH)
 
 #%% GUI Classes
 #%% Time Save Window
@@ -20,6 +28,41 @@ class TSW(TSW_Form, QMainWindow):
         self.stop_time = None
 
         self.total_time = None
+
+        self.data_dic: dict
+
+        tmp_mode:str
+
+        # Check if the file exists
+        if os.path.isfile(REC_FILE_PATH):
+            # Just reads the file
+            tmp_mode = 'r'
+        else:
+            # Creates a new file
+            tmp_mode = 'x'
+        
+        with open(REC_FILE_PATH, mode= tmp_mode) as rec_file:
+            tmp_dic:dict
+
+            if tmp_mode == 'x':
+                # put an empty dictionary in the file
+                rec_file.write(json.dumps({}))
+                tmp_dic = {}
+            else:
+                tmp_dic = json.loads(rec_file.read(-1))
+
+            # Check if all labels are in the record file
+            for expected_key in CONF_DIC["LABELS"]:
+                if not(expected_key in [tmp_dic.keys()]):
+                    # add the missing labels to the dictionary
+                    tmp_dic.update({expected_key:[]})
+
+            # initiate the data dictionary
+            self.data_dic = tmp_dic.copy()
+        
+        # Verify the combo box labels are the same as the CONF json file
+        for expected_key in CONF_DIC["LABELS"]:
+            assert self.comboBox_Label.findText(expected_key) >= 0, "Combo Box's labels don't match the CONF.json file"
         
 
         self.get_time_but_start.clicked.connect(self.get_time_start)
@@ -83,6 +126,8 @@ class TSW(TSW_Form, QMainWindow):
         self.set_but_stop.setStyleSheet("")
 
     def save_file(self):        
+        tmp_label:str = self.comboBox_Label.currentText()
+
         if (self.start_time == None) or (self.stop_time == None):
             self.save_but.setStyleSheet("background-color: rgb(255, 0, 0);")
         else:
@@ -94,16 +139,22 @@ class TSW(TSW_Form, QMainWindow):
             else:
                 self.save_but.setEnabled(False)
 
-                with open('PMP_LOG.txt', 'a') as log_file:
-                    log_file.write('TOTAL => {:^15} | START => {} | STOP => {} | Details => {}\n'.format\
-                                        (self.total_time, self.start_time, self.stop_time, repr(self.textEdit_details.toPlainText())))
+                self.data_dic[tmp_label].append({
+                    "START"     : self.start_time,
+                    "STOP"      : self.stop_time,
+                    "TOTAL"     : self.total_time,
+                    "Details"   : repr(self.textEdit_details.toPlainText())
+                })
+
+                with open(REC_FILE_PATH, mode='w') as rec_file:
+                    rec_file.write(json.dumps(self.data_dic))
 
                 self.save_but.setStyleSheet("background-color: rgb(0, 255, 0);")
 
     def reset_all(self):
         self.reset_start()
         self.reset_stop()
-        self.textEdit_details.clear()
+        self.textEdit_details.setText("")
 
         self.save_but.setEnabled(True)
         self.save_but.setStyleSheet("")
@@ -122,3 +173,5 @@ if __name__ == "__main__":
     
     app.exec_()
     print('this was the end!')
+
+# %%

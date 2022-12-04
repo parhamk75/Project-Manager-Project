@@ -1,3 +1,4 @@
+TMP*
 tmp*
 __pycache__/*
-PMP_LOG.txt
+OUTPUT/*
