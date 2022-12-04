@@ -2,3 +2,4 @@ TMP*
 tmp*
 __pycache__/*
 OUTPUT/*
+FTP_BACKUP
