@@ -3,7 +3,7 @@
     "FTP_SAVING_PATH"   :   "Recording.json",
     "LABELS"            :   ["Bio-Engine", "Four Clovers Health", "INILAB"],
     "FTP"               :   {
-            "host"  :   "",
+            "host"  :	"", 
             "user"  :   "",
             "passwd":   ""
     }
